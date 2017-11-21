@@ -1,5 +1,6 @@
 package businesslogic;
 
+import dataaccess.NotesDBException;
 import dataaccess.UserDB;
 import domainmodel.Role;
 import domainmodel.User;
@@ -42,10 +43,12 @@ public class UserService {
         user.setRole(role);
         return userDB.insert(user);
     }
-    User getByEmail(String email) {
+    public User getByEmail(String email) throws NotesDBException{
+        return userDB.getUserByEmail(email);
+}
+       
+    
         
         
-        return null;
-        
-    }
+    
 }
